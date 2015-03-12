@@ -3,23 +3,24 @@
     $lon=$_REQUEST['lon'];
     $base="http://api.weather.com/v2/geocode/$lat/$lon/aggregate.json?";
         $params = array(
-            'apiKey'=>'###insert your key here###',
+            //'apiKey'=>'###insert your key here###',
+            'apiKey'=>'xxxxxxxxxxxxxxxx',
             'units'=>'e',
             'language'=>'en',
             'products'=> 'conditions'
         );
-        $secret="###if using a secret, put it here";
+        //$secret="###if using a secret, put it here otherwise set to null";
+        $secret=null;
     $uri=http_build_query($params);
     $url="$base$uri";
     if ($secret)
     {
+        date_default_timezone_set("America/New_York");
         $date = strftime("%a, %d %b %Y %H:%M:%S GMT");
-        $err= preg_match('^http(s|)://[a-z0-9.]+(/[^?]+)?',$url, $match);
+        $err= preg_match("/^http(s|):\/\/[a-z0-9.]+(\/[^?]+)?/",$url, $match);
         $hash=hash('sha256',$match[2]);
         $authorization = "TWC $hash";
-        echo "hash - $hash -
-";
-
+        //echo "hash - $hash - ";
         $opts = array(
                 'http'=>array(
                     'method'=>"GET",
