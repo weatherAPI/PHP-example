@@ -5,4 +5,5 @@ Add index.php to a directory where apache can execute php
 like
 /var/www/html/weather/
 
+Add your API key
 Make sure Apache is set to execute PHP
