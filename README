@@ -1,0 +1,8 @@
+TO INSTALL
+APACHE INSTRUCTIONS
+
+Add index.php to a directory where apache can execute php
+like
+/var/www/html/weather/
+
+Make sure Apache is set to execute PHP
